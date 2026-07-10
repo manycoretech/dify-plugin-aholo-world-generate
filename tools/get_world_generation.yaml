@@ -1,0 +1,75 @@
+identity:
+  name: get_world_generation
+  author: manycoretech
+  label:
+    en_US: Get World Generation
+    zh_Hans: 查询 World 生成任务
+description:
+  human:
+    en_US: Query an Aholo World Generate task and return normalized assets.
+    zh_Hans: 查询 Aholo World 生成任务并返回标准化产物字段。
+  llm: Query an Aholo World Generate task by world_id and return status, progress, pano, spz, ply, and lod metadata URLs.
+parameters:
+  - name: world_id
+    type: string
+    required: true
+    label:
+      en_US: World ID
+      zh_Hans: World ID
+    human_description:
+      en_US: The world_id returned by create_world_generation.
+      zh_Hans: create_world_generation 返回的 world_id。
+    llm_description: The world_id returned by create_world_generation.
+    form: llm
+  - name: region
+    type: select
+    required: true
+    default: cn
+    label:
+      en_US: Region
+      zh_Hans: 区域
+    human_description:
+      en_US: Aholo API region.
+      zh_Hans: Aholo API 区域。
+    options:
+      - value: cn
+        label:
+          en_US: China
+          zh_Hans: 中国
+      - value: com
+        label:
+          en_US: Global
+          zh_Hans: 海外
+    form: form
+output_schema:
+  type: object
+  properties:
+    world_id:
+      type: string
+    status:
+      type: string
+    progress:
+      type: number
+    pano_url:
+      type: string
+    spz_url:
+      type: string
+    ply_url:
+      type: string
+    lod_meta_url:
+      type: string
+    up_axis:
+      type: string
+    name:
+      type: string
+    cover:
+      type: string
+    scene:
+      type: string
+    create_time:
+      type: integer
+    update_time:
+      type: integer
+extra:
+  python:
+    source: tools/get_world_generation.py

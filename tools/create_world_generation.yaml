@@ -1,0 +1,88 @@
+identity:
+  name: create_world_generation
+  author: manycoretech
+  label:
+    en_US: Create World Generation
+    zh_Hans: 创建 World 生成任务
+description:
+  human:
+    en_US: Submit an Aholo World Generate task from a prompt and an optional reference image.
+    zh_Hans: 通过 prompt 和可选参考图提交 Aholo World 生成任务。
+  llm: Submit an Aholo World Generate task. Provide a prompt and optionally one local image_file.
+parameters:
+  - name: prompt
+    type: string
+    required: false
+    label:
+      en_US: Prompt
+      zh_Hans: 提示词
+    human_description:
+      en_US: Text prompt describing the indoor world to generate.
+      zh_Hans: 描述要生成的室内空间的文本提示词。
+    llm_description: Text prompt describing the indoor world to generate.
+    form: llm
+  - name: image_file
+    type: file
+    required: false
+    label:
+      en_US: Reference Image File
+      zh_Hans: 本地参考图文件
+    human_description:
+      en_US: Optional local image file. Supported formats are jpg, jpeg, png, and webp.
+      zh_Hans: 可选本地图片文件，支持 jpg、jpeg、png、webp。
+    llm_description: Optional local reference image file.
+    form: llm
+  - name: name
+    type: string
+    required: false
+    label:
+      en_US: Name
+      zh_Hans: 名称
+    human_description:
+      en_US: Optional name for the generated world.
+      zh_Hans: 可选的生成任务名称。
+    llm_description: Optional name for the generated world.
+    form: llm
+  - name: cover
+    type: string
+    required: false
+    label:
+      en_US: Cover URL
+      zh_Hans: 封面 URL
+    human_description:
+      en_US: Optional HTTPS cover image URL.
+      zh_Hans: 可选 HTTPS 封面图片 URL。
+    llm_description: Optional HTTPS cover image URL.
+    form: llm
+  - name: region
+    type: select
+    required: true
+    default: cn
+    label:
+      en_US: Region
+      zh_Hans: 区域
+    human_description:
+      en_US: Aholo API region.
+      zh_Hans: Aholo API 区域。
+    options:
+      - value: cn
+        label:
+          en_US: China
+          zh_Hans: 中国
+      - value: com
+        label:
+          en_US: Global
+          zh_Hans: 海外
+    form: form
+output_schema:
+  type: object
+  properties:
+    world_id:
+      type: string
+    status:
+      type: string
+    reference_image_url:
+      type: string
+extra:
+  python:
+    source: tools/create_world_generation.py

@@ -1,0 +1,8 @@
+docs/
+tests/
+progress.md
+task_plan.md
+findings.md
+.git/
+.env
+*.difypkg
