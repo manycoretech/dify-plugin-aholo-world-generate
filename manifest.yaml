@@ -6,8 +6,8 @@ label:
   en_US: Aholo World Generate
   zh_Hans: Aholo World 生成
 description:
-  en_US: Generate 3DGS indoor worlds with Aholo World Generate.
-  zh_Hans: 使用 Aholo World Generate 生成 3DGS 室内世界。
+  en_US: Generate 3DGS worlds with Aholo World Generate.
+  zh_Hans: 使用 Aholo World Generate 生成3DGS世界。
 icon: icon.svg
 resource:
   memory: 268435456

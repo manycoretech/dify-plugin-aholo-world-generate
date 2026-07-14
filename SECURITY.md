@@ -39,7 +39,6 @@ Out of scope:
 ## Security Practices
 
 - API keys are accepted only as Dify provider credentials and are not returned in tool outputs.
-- Optional `cover` URLs are validated to reject localhost and private network hosts before requests are sent.
 - Do not commit `.env` files or real API keys to the repository.
 
 ## Dify Marketplace Disclosure

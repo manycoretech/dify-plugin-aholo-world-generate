@@ -10,7 +10,6 @@ from utils.aholo_client import (
     create_generation,
     normalize_world_detail,
     validate_generation_inputs,
-    validate_public_url,
     validate_succeeded_assets,
 )
 from utils.errors import PluginInputError, user_safe_error
@@ -93,7 +92,6 @@ def test_create_generation_uploads_file_then_submits_world(monkeypatch: pytest.M
             "prompt": "modern living room",
             "resources": [{"url": "https://assets.example/uploaded.png", "type": "image"}],
             "name": "Demo",
-            "cover": None,
             "x_source": "dify-plugin-aholo-world-generate",
         }
     ]
@@ -136,18 +134,6 @@ def test_normalize_world_detail_flattens_asset_fields() -> None:
     assert normalized["lod_meta_url"] == "https://example.com/lod.json"
     assert normalized["up_axis"] == "Y"
     assert normalized["create_time"] == 1710000000
-
-
-def test_validate_public_url_rejects_private_ip_literal() -> None:
-    with pytest.raises(PluginInputError, match="private or local"):
-        validate_public_url("https://127.0.0.1/reference.png", field_name="image_url")
-
-
-def test_validate_public_url_rejects_non_standard_numeric_ip_notation() -> None:
-    with pytest.raises(PluginInputError, match="non-standard numeric IP"):
-        validate_public_url("https://2130706433/reference.png", field_name="image_url")
-    with pytest.raises(PluginInputError, match="non-standard numeric IP"):
-        validate_public_url("https://0x7f000001/reference.png", field_name="image_url")
 
 
 def test_validate_succeeded_assets_requires_success_assets() -> None:

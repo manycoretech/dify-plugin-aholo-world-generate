@@ -17,9 +17,9 @@ parameters:
       en_US: Prompt
       zh_Hans: 提示词
     human_description:
-      en_US: Text prompt describing the indoor world to generate.
-      zh_Hans: 描述要生成的室内空间的文本提示词。
-    llm_description: Text prompt describing the indoor world to generate.
+      en_US: Text prompt describing the 3DGS world to generate.
+      zh_Hans: 描述要生成的3DGS世界的文本提示词。
+    llm_description: Text prompt describing the 3DGS world to generate.
     form: llm
   - name: image_file
     type: file
@@ -42,17 +42,6 @@ parameters:
       en_US: Optional name for the generated world.
       zh_Hans: 可选的生成任务名称。
     llm_description: Optional name for the generated world.
-    form: llm
-  - name: cover
-    type: string
-    required: false
-    label:
-      en_US: Cover URL
-      zh_Hans: 封面 URL
-    human_description:
-      en_US: Optional HTTPS cover image URL.
-      zh_Hans: 可选 HTTPS 封面图片 URL。
-    llm_description: Optional HTTPS cover image URL.
     form: llm
   - name: region
     type: select

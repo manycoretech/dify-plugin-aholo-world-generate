@@ -1,6 +1,6 @@
 # Aholo World Generate Dify Plugin
 
-Generate Aholo 3DGS indoor worlds from Dify workflows, chatflows, or agents.
+Generate Aholo 3DGS worlds from Dify workflows, chatflows, or agents.
 
 ## Tools
 
@@ -14,7 +14,6 @@ Generate Aholo 3DGS indoor worlds from Dify workflows, chatflows, or agents.
 - `prompt`: optional text prompt.
 - `image_file`: optional local image file (`jpg`, `jpeg`, `png`, `webp`).
 - `name`: optional world name.
-- `cover`: optional HTTPS cover URL.
 - `region`: `cn` or `com`.
 
 At least one of `prompt` or `image_file` is required.

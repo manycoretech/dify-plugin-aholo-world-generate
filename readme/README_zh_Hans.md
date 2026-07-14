@@ -1,6 +1,6 @@
 # Aholo World Generate Dify 插件
 
-在 Dify Workflow、Chatflow 或 Agent 中调用 Aholo World Generate，生成 3DGS 室内世界。
+在 Dify Workflow、Chatflow 或 Agent 中调用 Aholo World Generate，生成3DGS世界。
 
 ## 工具
 
@@ -14,7 +14,6 @@
 - `prompt`：可选文本提示词。
 - `image_file`：可选本地图片文件，支持 `jpg`、`jpeg`、`png`、`webp`。
 - `name`：可选世界名称。
-- `cover`：可选 HTTPS 封面 URL。
 - `region`：`cn` 或 `com`。
 
 `prompt` 与 `image_file` 至少需要提供一个。

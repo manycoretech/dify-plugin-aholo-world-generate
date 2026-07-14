@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-import ipaddress
 from typing import Any, Mapping, Optional
-from urllib.parse import urlparse
 
 from manycore.aholo_sdk_asset import create_asset_client
 from manycore.aholo_sdk_world import create_world_client
@@ -24,12 +22,10 @@ def create_generation(
     prompt: Any = None,
     image_file: Any = None,
     name: Any = None,
-    cover: Any = None,
 ) -> dict[str, Any]:
     normalized_region = normalize_region(region)
     prompt_text = clean_string(prompt)
     name_text = clean_string(name)
-    cover_text = validate_public_url(clean_string(cover), field_name="cover")
     validate_generation_inputs(prompt_text, image_file)
 
     config = build_sdk_config(credentials, normalized_region)
@@ -47,7 +43,6 @@ def create_generation(
         prompt=prompt_text or None,
         resources=resources,
         name=name_text or None,
-        cover=cover_text or None,
         x_source="dify-plugin-aholo-world-generate",
     )
     world_id = clean_string(operation.get("worldId"))
@@ -121,36 +116,6 @@ def format_detail_summary(detail: Mapping[str, Any]) -> str:
         f"Aholo world {detail.get('world_id')} status={detail.get('status') or 'UNKNOWN'} "
         f"progress={detail.get('progress', 0)}; available: {available}."
     )
-
-
-def validate_public_url(value: str, *, field_name: str) -> str:
-    if not value:
-        return ""
-
-    parsed = urlparse(value)
-    if parsed.scheme != "https" or not parsed.netloc:
-        raise PluginInputError(f"{field_name} must be an absolute https URL.")
-    if parsed.username or parsed.password:
-        raise PluginInputError(f"{field_name} must not include URL credentials.")
-
-    host = parsed.hostname or ""
-    host_labels = host.lower().split(".")
-    if any(label.startswith("0x") for label in host_labels):
-        raise PluginInputError(f"{field_name} must not use non-standard numeric IP notation.")
-    if set(host) <= set("0123456789."):
-        try:
-            ipaddress.ip_address(host)
-        except ValueError as error:
-            raise PluginInputError(f"{field_name} must not use non-standard numeric IP notation.") from error
-    if host.lower() == "localhost" or host.lower().endswith(".localhost") or host.lower().endswith(".local"):
-        raise PluginInputError(f"{field_name} must not point to localhost or local network hosts.")
-    try:
-        address = ipaddress.ip_address(host)
-    except ValueError:
-        return value
-    if address.is_private or address.is_loopback or address.is_link_local or address.is_reserved or address.is_multicast:
-        raise PluginInputError(f"{field_name} must not point to private or local network addresses.")
-    return value
 
 
 def validate_succeeded_assets(detail: Mapping[str, Any]) -> None:

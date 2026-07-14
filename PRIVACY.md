@@ -7,7 +7,7 @@ This plugin sends user-provided inputs to Aholo API services in order to create 
 - Aholo API key, sent as a provider credential for authentication.
 - Text prompts submitted to `create_world_generation`.
 - Optional uploaded image files, uploaded to Aholo asset services before generation.
-- Optional cover URLs and world names.
+- Optional world names.
 - World IDs submitted to `get_world_generation`.
 
 ## Data Returned

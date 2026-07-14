@@ -19,7 +19,6 @@ class CreateWorldGenerationTool(Tool):
                 prompt=tool_parameters.get("prompt"),
                 image_file=tool_parameters.get("image_file"),
                 name=tool_parameters.get("name"),
-                cover=tool_parameters.get("cover"),
             )
         except Exception as error:
             raise ValueError(user_safe_error(error, context="Create world generation")) from error
