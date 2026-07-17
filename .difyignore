@@ -6,3 +6,13 @@ findings.md
 .git/
 .env
 *.difypkg
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+.DS_Store
