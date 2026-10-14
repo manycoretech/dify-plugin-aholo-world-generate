@@ -49,14 +49,14 @@
 申请 API Key：
 
 - 国内（`cn`）：https://labs.aholo3d.cn/api-keys
-- 海外（`com`）：https://labs.aholo3d.com/api-keys
+- 海外（`com`）：https://labs.aholo.ai/api-keys
 
 请使用与工具中 `region` 参数一致的区域所申请的 API Key。
 
 ## 区域
 
 - `cn`：`https://api.aholo3d.cn`
-- `com`：`https://api.aholo3d.com`
+- `com`：`https://api.aholo.ai`
 
 ## 本地开发
 

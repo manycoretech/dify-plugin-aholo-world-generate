@@ -49,14 +49,14 @@ Configure the provider credential `api_key` with your Aholo API key. The key is 
 Get an API key:
 
 - China (`cn`): https://labs.aholo3d.cn/api-keys
-- Global (`com`): https://labs.aholo3d.com/api-keys
+- Global (`com`): https://labs.aholo.ai/api-keys
 
 Use an API key from the same region you select in the tool (`cn` or `com`).
 
 ## Region
 
 - `cn`: `https://api.aholo3d.cn`
-- `com`: `https://api.aholo3d.com`
+- `com`: `https://api.aholo.ai`
 
 ## Local Development
 

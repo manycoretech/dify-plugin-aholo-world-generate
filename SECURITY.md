@@ -6,7 +6,7 @@ Security fixes are provided for the latest released version on the [Dify Marketp
 
 | Version | Supported |
 | --- | --- |
-| 1.0.x | Yes |
+| 1.1.x | Yes |
 | < 1.0.0 | No |
 
 ## Reporting a Vulnerability

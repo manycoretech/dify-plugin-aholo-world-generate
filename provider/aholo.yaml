@@ -22,8 +22,8 @@ credentials_for_provider:
       en_US: Please enter your Aholo API key
       zh_Hans: 请输入你的 Aholo API Key
     help:
-      en_US: "Get an API key from Aholo Labs. China: labs.aholo3d.cn/api-keys · Global: labs.aholo3d.com/api-keys. Use a key from the same region as the tool."
-      zh_Hans: "从 Aholo Labs 获取 API Key。国内：labs.aholo3d.cn/api-keys；海外：labs.aholo3d.com/api-keys。请使用与工具 region 一致的区域所申请的 Key。"
+      en_US: "Get an API key from Aholo Labs. China: labs.aholo3d.cn/api-keys · Global: labs.aholo.ai/api-keys. Use a key from the same region as the tool."
+      zh_Hans: "从 Aholo Labs 获取 API Key。国内：labs.aholo3d.cn/api-keys；海外：labs.aholo.ai/api-keys。请使用与工具 region 一致的区域所申请的 Key。"
     url: https://labs.aholo3d.cn/api-keys
 tools:
   - tools/create_world_generation.yaml

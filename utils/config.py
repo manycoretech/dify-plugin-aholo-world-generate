@@ -9,7 +9,7 @@ from utils.errors import PluginInputError
 
 SUPPORTED_REGIONS = frozenset({"cn", "com"})
 DEFAULT_REGION = "cn"
-PLUGIN_USER_AGENT = "dify-plugin-aholo-world-generate/1.0.0"
+PLUGIN_USER_AGENT = "dify-plugin-aholo-world-generate/1.1.0"
 
 
 def clean_string(value: Any) -> str:
